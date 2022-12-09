@@ -1,0 +1,28 @@
+MAP
+    NAME "TinyOWS"
+
+    WEB
+         METADATA
+                    "tinyows_schema_dir" "/usr/local/share/tinyows/schema/"
+                    "tinyows_onlineresource" "127.0.0.1/cgi-bin/tinyows.fcgi"
+                    "wfs_title" "TinyOWS service provided by a MapFile"
+                    "wfs_contact" "foo@bar.net"
+         END
+    END
+
+    LAYER
+            NAME 'France'
+            CONNECTIONTYPE postgis
+            CONNECTION "host=127.0.0.1 user=postgres password=postgres dbname=tinyows_demo port=5432"
+            METADATA
+                    'wfs_title' 'France'
+                    'wfs_namespace_prefix' 'tows'
+                    'wfs_namespace_uri' 'http://www.mapserver.org/tinyows/'
+                    'wfs_srs' 'EPSG:27582'
+                    'tinyows_table'  'france'
+                    'tinyows_writable' '1'
+                    'tinyows_retrievable' '1'
+            END
+            DUMP TRUE
+    END
+END

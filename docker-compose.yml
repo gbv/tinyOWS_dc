@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  tinyows:
+    container_name: tinyows
+    build:
+      context: ./build
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    volumes:
+      - ./tinyows_config:/var/tinyOWS/config
+      - ./data:/var/lib/postgresql/data
+  
